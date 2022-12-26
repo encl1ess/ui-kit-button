@@ -1,49 +1,36 @@
 <script >
 import CustomButton from '@/components/CustomButton.vue'
 import IconArrowGreater from './components/icons/IconArrowGreater.vue';
-export default{
+import IconExit from './components/icons/IconExit.vue';
+import IconVK from './components/icons/IconVK.vue';
+export default {
   components: {
     CustomButton,
-    IconArrowGreater
+    IconArrowGreater,
+    IconExit,
+    IconVK
 }
 }
 </script>
 
 <template>
   <main>
-    <custom-button success><IconArrowGreater/></custom-button>
+    <custom-button success><IconVK/> Повторное письмо</custom-button>
+    <custom-button success type="link" url="#">Link </custom-button>
   </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style >
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+body {
+  background: #1E1E1E;
 }
 
-@media (min-width: 1024px) {
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+#app {
+    margin: 1em;
 }
 </style>
