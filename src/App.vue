@@ -1,15 +1,17 @@
 <script >
 import CustomButton from '@/components/CustomButton.vue'
+import IconArrowGreater from './components/icons/IconArrowGreater.vue';
 export default{
   components: {
-    CustomButton
-  }
+    CustomButton,
+    IconArrowGreater
+}
 }
 </script>
 
 <template>
   <main>
-    <custom-button/>
+    <custom-button success><IconArrowGreater/></custom-button>
   </main>
 </template>
 
@@ -24,6 +26,10 @@ header {
 }
 
 @media (min-width: 1024px) {
+  * {
+    margin: 0;
+    padding: 0;
+  }
   header {
     display: flex;
     place-items: center;
