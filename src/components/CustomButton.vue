@@ -6,7 +6,7 @@
         <div class="wrapper">
             <slot></slot>
         </div>
-        <custom-timer v-if="timer" :timer="timer"/>
+        <custom-timer v-if="timer" :timer="timer" />
     </button>
 </template>
 
@@ -56,7 +56,7 @@ $action: #ED732E;
 
 @mixin small-size {
     height: $small;
-    padding: 0 1.25rem;
+    padding: 0 0.9rem;
     border-radius: 1.1rem;
 }
 
@@ -85,9 +85,11 @@ $action: #ED732E;
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
+
     &:hover {
         color: #767679;
     }
+
     &:visited {
         color: #C4296C;
 
@@ -104,20 +106,28 @@ $action: #ED732E;
     line-height: 24px;
     border: none;
     border-radius: 1.4rem;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     background: transparent;
     height: $normal;
+
     .wrapper {
         display: flex;
         align-items: center;
         justify-content: stretch;
+        height: 30px;
+        width: 30px;
     }
+
     &:hover {
         box-shadow: rgba(255, 255, 255, 0.5) 0px 4px 8px -2px, rgba(255, 255, 255, 0.5) 0px 0px 0px 1px;
     }
 
     &[small] {
         @include small-size;
+        .wrapper {
+            height: 24px;
+            width: 24px;
+        }
 
     }
 
@@ -161,6 +171,11 @@ $action: #ED732E;
 
     @media (max-width: 640px) {
         @include small-size;
+
+        .wrapper{
+            height: 24px;
+            width: 24px;
+        }
     }
 }
 </style>

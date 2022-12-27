@@ -1,5 +1,5 @@
 <template>
-    <svg class="icon" role="img" :width="width" :height="height" viewBox="0 0 35 37" fill="none"
+    <svg class="icon" role="img"  width="100%" height="100%" viewBox="0 0 35 37" fill="none"
         xmlns="http://www.w3.org/2000/svg">
         <path
             d="M25.8347 21.6608C26.1306 21.3943 26.5994 21.5317 26.6674 21.9048L27.9788 29.0958C28.0452 29.4599 27.6784 29.777 27.3143 29.6703L20.2998 27.6144C19.9356 27.5077 19.8428 27.0559 20.1316 26.7959L25.8347 21.6608Z"
