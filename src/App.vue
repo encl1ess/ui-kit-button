@@ -1,10 +1,9 @@
 <script >
 import CustomButton from '@/components/CustomButton.vue'
-import IconVk from './components/icons/IconVk.vue';
+
 export default {
   components: {
     CustomButton,
-    IconVk
 }
 }
 </script>
@@ -15,9 +14,6 @@ export default {
       <p class="flex-container__title"> (button link)</p>
       <custom-button success type="link" url="#1">Напомнить PIN-код</custom-button>
       <custom-button success type="link" url="#">Напомнить PIN-код</custom-button>
-    </div>
-    <div class="flex-container flex-container__column">
-
     </div>
     <div class="flex-container flex-container__column">
       <p class="flex-container__title"> (button multi-sized)</p>
@@ -94,7 +90,16 @@ export default {
     <div class="flex-container flex-container__column">
       <p class="flex-container__title"> (button timer)</p>
       <p>(disabled)</p>  
-      <custom-button disabled timer="2:00">
+      <custom-button primary disabled timer="0:10">
+         Повторное письмо
+      </custom-button>
+      <custom-button warning disabled timer="0:5">
+         Повторное письмо
+      </custom-button>
+      <custom-button info disabled timer="0:30">
+         Повторное письмо
+      </custom-button>
+      <custom-button danger disabled timer="3:00">
          Повторное письмо
       </custom-button>
     </div>
@@ -129,14 +134,6 @@ export default {
          Оправить письмо
       </custom-button>
     </div>
-
-    <div class="flex-container flex-container__column">
-      <p class="flex-container__title"> (other)</p>
-      <p>(primary)</p>  
-      <custom-button primary>
-         Повторное письмо
-      </custom-button>
-    </div>
   </main>
 </template>
 
@@ -160,7 +157,8 @@ body {
 
 
 #app {
-  margin: 1em;
+
+  align-items: center;
 }
 
 .flex-container {

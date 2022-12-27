@@ -6,7 +6,7 @@
         <div class="wrapper">
             <slot></slot>
         </div>
-        <custom-timer v-if="timer" :timer="timer" />
+        <custom-timer v-if="timer" :timer="timer"  @endTimer="makeClickable"/>
     </button>
 </template>
 
@@ -38,6 +38,11 @@ export default {
             type: String,
             required: false
         }
+    },
+    methods: {
+        makeClickable() {
+            this.$refs.button.removeAttribute('disabled');
+        }
     }
 }
 </script>
@@ -58,11 +63,27 @@ $action: #ED732E;
     height: $small;
     border-radius: 1.1rem;
     padding: 0 3rem;
+
+    &[icon] {
+        padding: 0 1rem;
+
+        .wrapper {
+            width: 24px;
+        }
+    }
+
+    .wrapper {
+        height: 24px;
+    }
 }
 
 @mixin disabled-view {
     background-color: $disabled;
     color: #767679;
+
+    &:hover {
+        box-shadow: none;
+    }
 
 }
 
@@ -144,19 +165,6 @@ $action: #ED732E;
 
     &[small] {
         @include small-size;
-
-        &[icon] {
-            padding: 0 1rem;
-
-            .wrapper {
-                width: 24px;
-            }
-        }
-
-        .wrapper {
-            height: 24px;
-        }
-
     }
 
     &[normal] {
@@ -193,13 +201,6 @@ $action: #ED732E;
         background-color: $warning;
     }
 
-    &[disabled] {
-        @include disabled-view;
-
-        .wrapper {
-            color: #767679;
-        }
-    }
 
     &[info] {
         background-color: $info;
@@ -213,18 +214,17 @@ $action: #ED732E;
         background-color: $action;
     }
 
+    &[disabled] {
+        @include disabled-view;
+
+        .wrapper {
+            color: #767679;
+        }
+    }
+
+
     @media (max-width: 640px) {
         @include small-size;
-        &[icon] {
-            padding: 0 1rem;
-
-            .wrapper {
-                width: 24px;
-            }
-        }
-        .wrapper {
-            height: 24px;
-        }
     }
 }
 </style>

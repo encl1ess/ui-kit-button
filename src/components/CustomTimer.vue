@@ -1,6 +1,6 @@
 <template>
-    <div class="timer">
-        {{ timer }}
+    <div class="timer" ref="timer">
+        {{ timeWithZeros }}
     </div>
 </template>
 
@@ -10,8 +10,9 @@ export default {
         return {
             isCounting: false,
             minutes: 0,
-            seconda: 0,
-            time: ''
+            seconds: 0,
+            time: 0,
+            myTimer: null
 
         }
     },
@@ -20,9 +21,34 @@ export default {
     },
     computed: {
         timeWithZeros() {
+            let time = this.time/60;
+            let minutes = parseInt(time);
+            let seconds =  Math.round((time - minutes) * 60);
+            return `${this.getZero(minutes)}:${this.getZero(seconds)}`;
+        },
+
+    },
+    mounted() {
+        let [minutes, seconds] = this.timer.split(":").map(elem => parseInt(elem));
+        this.minutes = minutes;
+        this.seconds = seconds;
+        this.time = this.minutes * 60 + this.seconds;
+        this.isCounting = true;
+        if (!this.myTimer) {
+            this.myTimer = setInterval(() => {
+                if (this.time > 0) {
+                    this.time--
+
+                } else {
+                    clearInterval(this.myTimer);
+                    this.isCounting = false;
+                    this.$refs.timer.style.display = 'none';
+                    this.$emit('endTimer', this.isCounting)
+                }
+            }, 1000)
+
 
         }
-
     },
     methods: {
         getZero(num) {
@@ -30,10 +56,6 @@ export default {
                 return `0${num}`;
             } else return num;
         },
-        start() {
-            this.isCounting = true;
-
-        }
 
     }
 }
