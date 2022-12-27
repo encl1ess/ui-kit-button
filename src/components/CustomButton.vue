@@ -56,8 +56,8 @@ $action: #ED732E;
 
 @mixin small-size {
     height: $small;
-    padding: 0 0.9rem;
     border-radius: 1.1rem;
+    padding: 0 3rem;
 }
 
 @mixin disabled-view {
@@ -100,22 +100,42 @@ $action: #ED732E;
 }
 
 .custom-button {
+
     text-transform: uppercase;
     font-weight: 1000;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 24px;
     border: none;
-    border-radius: 1.4rem;
-    padding: 0 1rem;
+    border-radius: 1.5rem;
+    padding: 0 4rem;
     background: transparent;
     height: $normal;
+    flex-wrap: nowrap;
+
+    &[icon] {
+        padding: 0 1rem;
+
+        .wrapper {
+            width: 30px;
+        }
+    }
+
+    .wrapper {
+        height: 30px;
+    }
 
     .wrapper {
         display: flex;
         align-items: center;
         justify-content: stretch;
+        flex-wrap: nowrap;
+        flex-shrink: 1;
         height: 30px;
-        width: 30px;
+        width: max-content;
+    }
+
+    .timer {
+        margin-left: 0.5rem;
     }
 
     &:hover {
@@ -124,9 +144,17 @@ $action: #ED732E;
 
     &[small] {
         @include small-size;
+
+        &[icon] {
+            padding: 0 1rem;
+
+            .wrapper {
+                width: 24px;
+            }
+        }
+
         .wrapper {
             height: 24px;
-            width: 24px;
         }
 
     }
@@ -134,6 +162,18 @@ $action: #ED732E;
     &[normal] {
         height: $normal;
         padding: 0 3rem;
+
+        &[icon] {
+            padding: 0 1rem;
+
+            .wrapper {
+                width: 30px;
+            }
+        }
+
+        .wrapper {
+            height: 30px;
+        }
     }
 
     &[primary] {
@@ -155,6 +195,10 @@ $action: #ED732E;
 
     &[disabled] {
         @include disabled-view;
+
+        .wrapper {
+            color: #767679;
+        }
     }
 
     &[info] {
@@ -171,10 +215,15 @@ $action: #ED732E;
 
     @media (max-width: 640px) {
         @include small-size;
+        &[icon] {
+            padding: 0 1rem;
 
-        .wrapper{
+            .wrapper {
+                width: 24px;
+            }
+        }
+        .wrapper {
             height: 24px;
-            width: 24px;
         }
     }
 }
