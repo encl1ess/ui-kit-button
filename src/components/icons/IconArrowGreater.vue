@@ -15,6 +15,7 @@
 import iconMixin from '@/mixins/iconMixin';
 
 export default {
+    name: 'iarrow-greater',
     mixins: [iconMixin]
 }
 </script>

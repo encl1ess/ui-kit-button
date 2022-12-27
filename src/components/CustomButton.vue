@@ -3,24 +3,20 @@
         <slot></slot>
     </a>
     <button v-else ref="button" class="custom-button" :type="type">
-
-        <div class="icon-wrapper">
-            <slot name="icon"></slot>
+        <div class="wrapper">
+            <slot></slot>
         </div>
-
-        <slot></slot>
-
-
-        <slot name="timer"></slot>
+        <custom-timer v-if="timer" :timer="timer"/>
     </button>
-
-
-
 </template>
 
 <script>
+import CustomTimer from '@/components/CustomTimer.vue';
 export default {
     name: 'custom-button',
+    components: {
+        CustomTimer
+    },
     data() {
         return {
             counter: 0,
@@ -39,17 +35,8 @@ export default {
             }
         },
         timer: {
-            type: Boolean,
+            type: String,
             required: false
-        }
-    },
-    methods: {
-        timerCounter() {
-            if (this.counter > 0) {
-                setTimeout(() => {
-
-                }, 1000)
-            }
         }
     }
 }
@@ -90,6 +77,7 @@ $action: #ED732E;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .custom-link {
@@ -97,11 +85,9 @@ $action: #ED732E;
     font-weight: 700;
     font-size: 16px;
     line-height: 18px;
-
     &:hover {
         color: #767679;
     }
-
     &:visited {
         color: #C4296C;
 
@@ -119,9 +105,15 @@ $action: #ED732E;
     border: none;
     border-radius: 1.4rem;
     padding: 0 1.5rem;
+    background: transparent;
     height: $normal;
-    .icon{
-        fill: red !important;
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: stretch;
+    }
+    &:hover {
+        box-shadow: rgba(255, 255, 255, 0.5) 0px 4px 8px -2px, rgba(255, 255, 255, 0.5) 0px 0px 0px 1px;
     }
 
     &[small] {

@@ -14,6 +14,7 @@
 import iconMixin from '@/mixins/iconMixin';
 
 export default {
+    name: 'igoogle',
     mixins: [iconMixin]
 }
 </script>

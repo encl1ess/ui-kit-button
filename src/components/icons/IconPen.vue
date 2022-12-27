@@ -25,6 +25,7 @@
 import iconMixin from '@/mixins/iconMixin';
 
 export default {
+    name: 'ipen',
     mixins: [iconMixin]
 }
 </script>

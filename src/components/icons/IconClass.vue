@@ -11,6 +11,7 @@
 import iconMixin from '@/mixins/iconMixin';
 
 export default {
+    name: 'iclass',
     mixins: [iconMixin]
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <svg class="icon" role="img" height="inherit" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="icon" role="img" :width="width" :height="height" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
             d="M1.36712 7.78609C1.2495 8.77391 1.25889 9.86122 1.63995 10.3875C2.021 10.9137 2.4637 11.0583 3.68572 11.0792C4.3533 11.0907 18.2921 11.0949 18.7736 10.9638C19.255 10.8325 19.6038 10.5659 19.7406 10.0354C19.8729 9.52288 19.9735 8.31857 19.7018 7.52147C19.4906 6.90139 19.2184 6.48914 18.052 6.42409C17.1315 6.37274 3.25516 6.3665 2.2582 6.66194C1.71079 6.82426 1.42916 7.2659 1.36712 7.78609Z"
             :fill="iconColor" />
@@ -16,6 +16,7 @@
 import iconMixin from '@/mixins/iconMixin';
 
 export default {
+    name: 'iarrow',
     mixins: [iconMixin]
 }
 </script>

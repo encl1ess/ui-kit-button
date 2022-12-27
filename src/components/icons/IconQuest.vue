@@ -12,6 +12,7 @@
 import iconMixin from '@/mixins/iconMixin';
 
 export default {
+    name: 'iquest',
     mixins: [iconMixin]
 }
 </script>
